@@ -1,0 +1,134 @@
+---
+/**
+ * Disclaimer page.
+ */
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../lib/site';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+
+const breadcrumbs = [
+  { name: 'Beranda', href: '/' },
+  { name: 'Disclaimer' },
+];
+
+const lastUpdated = '10 November 2025';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Disclaimer',
+  url: `${SITE.url}/disclaimer`,
+  inLanguage: 'id-ID',
+  dateModified: '2025-11-10',
+  isPartOf: { '@type': 'WebSite', name: SITE.name, url: SITE.url },
+};
+---
+
+<BaseLayout
+  title="Disclaimer"
+  description={`Disclaimer untuk layanan dan konten ${SITE.name} — jasa pembuatan website untuk UMKM Indonesia.`}
+  schema={schema}
+>
+  <Breadcrumbs items={breadcrumbs} />
+
+  <header class="page-header">
+    <h1>Disclaimer</h1>
+    <p class="page-header__meta">Terakhir diperbarui: {lastUpdated}</p>
+  </header>
+
+  <div class="page-body">
+    <h2>1. Sifat informatif konten</h2>
+    <p>
+      Seluruh artikel di situs ini disusun untuk tujuan edukatif dan informatif tentang jasa
+      pembuatan website serta strategi digital untuk bisnis lokal Indonesia. Konten di sini
+      bukan konsultasi bisnis formal atau jaminan hasil finansial.
+    </p>
+
+    <h2>2. Hasil dapat bervariasi</h2>
+    <p>
+      Hasil dari implementasi website dan strategi digital yang dibahas di artikel kami dapat
+      berbeda untuk setiap bisnis. Banyak faktor yang memengaruhi, termasuk industri, lokasi,
+      kompetisi, kualitas produk/jasa, eksekusi pemasaran, dan konsistensi dalam jangka panjang.
+    </p>
+    <p>
+      Klaim atau ilustrasi performa (misal: estimasi biaya, lama pengerjaan, hasil SEO) yang
+      disebutkan di artikel bersifat umum berdasarkan pengalaman kami, bukan janji pasti.
+    </p>
+
+    <h2>3. Estimasi biaya</h2>
+    <p>
+      Range harga yang disebutkan di artikel (misal: "Landing page Rp 2.000.000 — Rp 5.000.000")
+      adalah estimasi pasar umum, bukan harga final. Harga aktual untuk proyek Anda akan
+      ditentukan setelah konsultasi dan dipengaruhi oleh:
+    </p>
+    <ul>
+      <li>Kompleksitas desain dan fitur</li>
+      <li>Jumlah halaman atau produk</li>
+      <li>Integrasi dengan sistem pihak ketiga</li>
+      <li>Teknologi yang dipilih</li>
+      <li>Timeline yang diinginkan</li>
+    </ul>
+
+    <h2>4. Konten pihak ketiga</h2>
+    <p>
+      Situs ini mungkin merujuk ke layanan pihak ketiga (Google, Cloudflare, WhatsApp, payment
+      gateway, dll). Kami tidak bertanggung jawab atas perubahan kebijakan, harga, atau ketersediaan
+      layanan pihak ketiga tersebut.
+    </p>
+
+    <h2>5. SEO dan peringkat pencarian</h2>
+    <p>
+      Artikel kami membahas SEO sebagai bagian dari strategi digital. Namun, peringkat pencarian
+      Google dipengaruhi banyak faktor yang berada di luar kendali kami — termasuk algoritma
+      Google yang terus berubah, kompetisi keyword, dan kualitas konten Anda sendiri.
+    </p>
+    <p>
+      Kami <strong>tidak menjamin</strong> peringkat #1 di Google untuk keyword tertentu.
+      Layanan SEO kami berfokus pada optimasi on-page dan teknis yang merupakan fondasi
+      penting, bukan jaminan hasil spesifik.
+    </p>
+
+    <h2>6. Tautan afiliasi (jika ada)</h2>
+    <p>
+      Saat ini {SITE.name} tidak menggunakan tautan afiliasi. Jika di masa depan kami
+      menggunakan tautan afiliasi untuk merekomendasikan produk tertentu (misal: hosting,
+      domain, plugin), setiap tautan tersebut akan ditandai jelas dan tidak memengaruhi
+      editorial kami.
+    </p>
+
+    <h2>7. Konten yang dihasilkan AI</h2>
+    <p>
+      Seluruh artikel di situs ini ditulis oleh manusia. Kami tidak menggunakan model AI untuk
+      menghasilkan konten editorial. Kami mungkin menggunakan alat AI untuk membantu
+      penyuntingan tata bahasa atau pengecekan format, dengan supervisi editor manusia.
+    </p>
+
+    <h2>8. Pengindeksan oleh AI</h2>
+    <p>
+      Kami mengizinkan crawler model AI (seperti GPTBot, ClaudeBot, PerplexityBot,
+      Google-Extended) untuk mengindeks konten kami. Kami berharap AI yang merangkum atau
+      mengutip konten kami tetap menyertakan atribusi sumber dan tautan ke artikel asli.
+    </p>
+
+    <h2>9. Perubahan konten</h2>
+    <p>
+      Informasi di bidang teknologi web terus berkembang. Kami dapat memperbarui atau merevisi
+      artikel sewaktu-waktu tanpa pemberitahuan terpisah. Tanggal "Terakhir diperbarui" di
+      setiap artikel menunjukkan revisi terbaru.
+    </p>
+
+    <h2>10. Batasan tanggung jawab</h2>
+    <p>
+      {SITE.name} dan penulis tidak bertanggung jawab atas kerugian yang timbul dari keputusan
+      bisnis yang dibuat berdasarkan informasi di situs ini. Untuk keputusan penting, kami
+      menyarankan konsultasi langsung dengan kami atau profesional lain yang relevan.
+    </p>
+
+    <h2>11. Kontak</h2>
+    <p>
+      Jika Anda ragu tentang penerapan informasi di sini pada situasi Anda, atau menemukan
+      informasi yang menurut Anda keliru, hubungi kami melalui
+      <a href="/contact">halaman kontak</a>.
+    </p>
+  </div>
+</BaseLayout>

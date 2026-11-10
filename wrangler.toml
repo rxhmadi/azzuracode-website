@@ -1,0 +1,12 @@
+# Konfigurasi Cloudflare Pages untuk Stephanie K Naturals
+# Deploy dengan: npx wrangler pages deploy dist --project-name=stephanieknaturals
+
+name = "stephanieknaturals"
+compatibility_date = "2024-11-01"
+pages_build_output_dir = "dist"
+
+# Catatan:
+# - Custom domain (stephanieknaturals.com) diatur via Dashboard Cloudflare Pages
+#   → Settings → Custom domains → Set up a custom domain
+# - Karena domain sudah ada di akun Cloudflare yang sama, verifikasi otomatis
+# - SSL/HTTPS aktif otomatis (Cloudflare Universal SSL)

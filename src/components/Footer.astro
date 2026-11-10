@@ -1,0 +1,127 @@
+---
+/**
+ * Footer.astro — Footer tech startup style dengan 4 kolom:
+ * 1. Brand + tagline
+ * 2. Artikel
+ * 3. Pages
+ * 4. Contact (dengan icon)
+ */
+import { SITE } from '../lib/site';
+import Icon from './Icon.astro';
+
+const year = new Date().getFullYear();
+
+const articleLinks = [
+  { label: 'Jasa pembuatan website Jakarta', href: '/blog/jasa-pembuatan-website-jakarta' },
+  { label: 'Jasa pembuatan website Bandung', href: '/blog/jasa-pembuatan-website-bandung' },
+  { label: 'Jasa pembuatan website Surabaya', href: '/blog/jasa-pembuatan-website-surabaya' },
+  { label: 'Jasa pembuatan website Yogyakarta', href: '/blog/jasa-pembuatan-website-yogyakarta' },
+];
+
+const pageLinks = [
+  { label: 'Beranda', href: '/' },
+  { label: 'Tentang kami', href: '/about' },
+  { label: 'Kontak', href: '/contact' },
+  { label: 'Kebijakan Privasi', href: '/privacy' },
+  { label: 'Syarat & Ketentuan', href: '/terms' },
+  { label: 'Disclaimer', href: '/disclaimer' },
+];
+
+const contactLinks = [
+  {
+    label: SITE.whatsappDisplay,
+    href: SITE.whatsappLink,
+    icon: 'message-circle',
+    ariaLabel: 'Hubungi via WhatsApp',
+  },
+  {
+    label: SITE.email,
+    href: `mailto:${SITE.email}`,
+    icon: 'mail',
+    ariaLabel: 'Kirim email',
+  },
+  {
+    label: '@gandamekar',
+    href: SITE.telegram,
+    icon: 'send',
+    ariaLabel: 'Chat Telegram',
+  },
+  {
+    label: '@rxhmadi',
+    href: SITE.instagram,
+    icon: 'instagram',
+    ariaLabel: 'Instagram',
+  },
+];
+---
+
+<footer class="site-footer">
+  <div class="container-wide">
+    <div class="site-footer__inner">
+      <!-- Kolom 1: Brand + subtitle + tagline -->
+      <div class="site-footer__brand-col">
+        <a href="/" class="site-footer__brand" aria-label={`${SITE.name} — kembali ke beranda`}>
+          <span class="site-footer__brand-name">{SITE.name}</span>
+          <span class="site-footer__brand-sub">
+            <span class="site-footer__brand-sub-by">by</span>
+            <span class="site-footer__brand-sub-name">{SITE.fullName}</span>
+          </span>
+        </a>
+        <p class="site-footer__tagline">
+          {SITE.tagline}. Dikelola oleh {SITE.author}.
+        </p>
+      </div>
+
+      <!-- Kolom 2: Artikel -->
+      <div>
+        <h2 class="site-footer__col-title">Artikel</h2>
+        <ul class="site-footer__list">
+          {articleLinks.map((link) => (
+            <li>
+              <a href={link.href}>{link.label}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Kolom 3: Pages -->
+      <div>
+        <h2 class="site-footer__col-title">Halaman</h2>
+        <ul class="site-footer__list">
+          {pageLinks.map((link) => (
+            <li>
+              <a href={link.href}>{link.label}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Kolom 4: Contact dengan icon -->
+      <div>
+        <h2 class="site-footer__col-title">Kontak</h2>
+        <ul class="site-footer__list">
+          {contactLinks.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                target={link.href.startsWith('http') ? '_blank' : undefined}
+                rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                aria-label={link.ariaLabel}
+              >
+                <span class="site-footer__list-icon">
+                  <Icon name={link.icon} size={14} />
+                </span>
+                <span>{link.label}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    <div class="site-footer__bottom">
+      <span>&copy; {year} {SITE.fullName}. Hak cipta dilindungi.</span>
+      <span>Dibuat dengan Astro &middot; Indomaret Point Vanilla Latte dan Sebungkus HS</span>
+    </div>
+  </div>
+</footer>

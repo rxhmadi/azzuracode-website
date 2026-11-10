@@ -1,0 +1,175 @@
+---
+/**
+ * Contact page.
+ */
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../lib/site';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Icon from '../components/Icon.astro';
+
+const breadcrumbs = [
+  { name: 'Beranda', href: '/' },
+  { name: 'Kontak' },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'ContactPage',
+  name: 'Kontak',
+  url: `${SITE.url}/contact`,
+  inLanguage: 'id-ID',
+  isPartOf: { '@type': 'WebSite', name: SITE.name, url: SITE.url },
+};
+
+const contactItems = [
+  {
+    label: 'WhatsApp',
+    value: SITE.whatsapp,
+    href: SITE.whatsappLink,
+    icon: 'message-circle',
+    note: 'Respon paling cepat (10-30 menit di jam kerja)',
+  },
+  {
+    label: 'Email',
+    value: SITE.email,
+    href: `mailto:${SITE.email}`,
+    icon: 'mail',
+    note: 'Untuk dokumen atau brief lengkap',
+  },
+  {
+    label: 'Telegram',
+    value: '@gandamekar',
+    href: SITE.telegram,
+    icon: 'send',
+    note: 'Untuk chat cepat dan share file',
+  },
+  {
+    label: 'Instagram',
+    value: '@rxhmadi',
+    href: SITE.instagram,
+    icon: 'instagram',
+    note: 'Update project & behind the scenes',
+  },
+];
+---
+
+<BaseLayout
+  title="Kontak"
+  description={`Hubungi ${SITE.name} untuk konsultasi gratis jasa pembuatan website. WhatsApp, email, Telegram, atau Instagram.`}
+  type="website"
+  schema={schema}
+>
+  <Breadcrumbs items={breadcrumbs} />
+
+  <header class="page-header">
+    <h1>Kontak</h1>
+    <p class="page-header__meta">Konsultasi gratis · Respon 1×24 jam kerja</p>
+  </header>
+
+  <div class="page-body">
+    <p>
+      Punya ide untuk website bisnis Anda? Ingin tahu estimasi biaya? Atau butuh konsultasi
+      soal teknologi yang tepat untuk kebutuhan Anda? Kami senang mendengar dari Anda.
+    </p>
+
+    <p>
+      Kami juga menerima pertanyaan tentang artikel yang kami tulis, koreksi informasi, atau
+      usulan topik baru. Semua pertanyaan akan kami respons dalam waktu 1×24 jam kerja.
+    </p>
+
+    <h2>Cara menghubungi</h2>
+    <ul class="contact-list">
+      {contactItems.map((item) => (
+        <li>
+          <div class="contact-list__icon">
+            <Icon name={item.icon} size={20} />
+          </div>
+          <div>
+            <div class="contact-list__label">{item.label}</div>
+            <a href={item.href} target={item.href.startsWith('http') ? '_blank' : undefined} rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}>
+              {item.value}
+            </a>
+            <div class="contact-list__note">{item.note}</div>
+          </div>
+        </li>
+      ))}
+    </ul>
+
+    <h2>Untuk konsultasi website</h2>
+    <p>
+      Supaya kami bisa memberikan estimasi yang akurat, sebutkan beberapa hal berikut saat
+      menghubungi kami:
+    </p>
+    <ul>
+      <li>Jenis bisnis Anda (UMKM, jasa, retail, dll)</li>
+      <li>Tujuan website (penjualan, branding, info bisnis, dll)</li>
+      <li>Referensi website yang Anda suka (kalau ada)</li>
+      <li>Anggaran yang Anda siapkan (range saja)</li>
+      <li>Target waktu launch</li>
+    </ul>
+    <p>
+      Informasi ini akan membantu kami memberikan rekomendasi yang paling tepat — termasuk
+      jenis website, fitur yang dibutuhkan, dan timeline realistis.
+    </p>
+
+    <h2>Untuk koreksi artikel</h2>
+    <p>
+      Jika Anda menemukan kesalahan fakta, tautan rusak, atau informasi yang perlu diperbarui
+      di artikel kami, mohon sebutkan judul artikel dan bagian yang bersangkutan.
+    </p>
+
+    <h2>Jam kerja</h2>
+    <p>
+      Senin — Jumat, 09.00 — 18.00 WIB. Pesan di luar jam kerja akan kami respons pada hari kerja
+      berikutnya.
+    </p>
+  </div>
+</BaseLayout>
+
+<style>
+  .contact-list {
+    list-style: none;
+    padding: 0;
+    margin: var(--space-5) 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+  .contact-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+    padding: var(--space-4);
+    border: var(--border-width) solid var(--color-border);
+    border-radius: var(--radius);
+    margin: 0;
+  }
+  .contact-list__icon {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-sm);
+    background: var(--color-bg-subtle);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text);
+    flex-shrink: 0;
+  }
+  .contact-list__label {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    margin-bottom: 2px;
+  }
+  .contact-list__note {
+    font-size: 0.78rem;
+    color: var(--color-text-subtle);
+    margin-top: 2px;
+  }
+  .contact-list a {
+    color: var(--color-text);
+    font-weight: 500;
+  }
+  .contact-list a:hover {
+    color: var(--color-accent-hover);
+  }
+</style>

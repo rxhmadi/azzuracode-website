@@ -1,0 +1,146 @@
+---
+/**
+ * /blog/[slug] — Detail artikel.
+ * Menggunakan content collection Astro dengan schema Article JSON-LD + BreadcrumbList.
+ */
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { SITE } from '../../lib/site';
+import { formatDateID, readingTime, toISO } from '../../lib/articles';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Icon from '../../components/Icon.astro';
+
+// Generate static paths dari semua artikel
+export async function getStaticPaths() {
+  const articles = await getCollection('articles', ({ data }) => data.draft !== true);
+  return articles.map((article) => ({
+    params: { slug: article.id },
+    props: { article },
+  }));
+}
+
+const { article } = Astro.props;
+const { Content } = await render(article);
+const minutes = readingTime(article.body);
+
+const articleUrl = `${SITE.url}/blog/${article.id}`;
+const ogImage = article.data.image
+  ? new URL(article.data.image, SITE.url).toString()
+  : `${SITE.url}/og-image.jpg`;
+
+const breadcrumbs = [
+  { name: 'Beranda', href: '/' },
+  { name: 'Artikel', href: '/blog' },
+  { name: article.data.title },
+];
+
+// Schema Article (BlogPosting) lengkap untuk SEO & AI crawler
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: article.data.title,
+  description: article.data.description,
+  image: ogImage,
+  url: articleUrl,
+  datePublished: toISO(article.data.pubDate),
+  dateModified: toISO(article.data.updatedDate ?? article.data.pubDate),
+  author: {
+    '@type': 'Person',
+    name: article.data.author,
+    url: SITE.url,
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: SITE.name,
+    url: SITE.url,
+    logo: {
+      '@type': 'ImageObject',
+      url: `${SITE.url}/favicon.svg`,
+    },
+  },
+  inLanguage: 'id-ID',
+  keywords: article.data.tags.join(', '),
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': articleUrl,
+  },
+};
+
+// Schema BreadcrumbList
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: breadcrumbs.map((item, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: item.name,
+    ...(item.href ? { item: `${SITE.url}${item.href === '/' ? '/' : item.href}` } : { item: articleUrl }),
+  })),
+};
+---
+
+<BaseLayout
+  title={article.data.title}
+  description={article.data.description}
+  image={article.data.image ?? '/og-image.jpg'}
+  type="article"
+  publishedTime={toISO(article.data.pubDate)}
+  modifiedTime={toISO(article.data.updatedDate ?? article.data.pubDate)}
+  author={article.data.author}
+  tags={article.data.tags}
+  schema={[articleSchema, breadcrumbSchema]}
+>
+  <Breadcrumbs items={breadcrumbs} />
+
+  <article>
+    <header class="article-header">
+      <div class="article-header__meta">
+        <Icon name="calendar" size={14} />
+        <time datetime={toISO(article.data.pubDate)}>{formatDateID(article.data.pubDate)}</time>
+        <span aria-hidden="true">·</span>
+        <Icon name="clock" size={14} />
+        <span>{minutes} menit baca</span>
+        <span aria-hidden="true">·</span>
+        <Icon name="user" size={14} />
+        <span>{article.data.author}</span>
+      </div>
+      <h1>{article.data.title}</h1>
+      <p class="article-header__description">{article.data.description}</p>
+      {article.data.tags.length > 0 && (
+        <div style="display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-4);">
+          {article.data.tags.map((tag) => (
+            <span style="font-size: 0.75rem; color: var(--color-text-muted); padding: 4px 10px; border: var(--border-width) solid var(--color-border); border-radius: 999px;">{tag}</span>
+          ))}
+        </div>
+      )}
+      {article.data.image && (
+        <figure class="article-header__featured">
+          <img
+            src={article.data.image}
+            alt={article.data.title}
+            loading="eager"
+            decoding="async"
+          />
+        </figure>
+      )}
+    </header>
+
+    <div class="article-body">
+      <Content />
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .article-header__featured {
+    margin: var(--space-5) 0 0 0;
+    padding: 0;
+  }
+  .article-header__featured img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: var(--radius);
+    border: var(--border-width) solid var(--color-border);
+  }
+</style>

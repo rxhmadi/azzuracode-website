@@ -1,0 +1,1172 @@
+/* ==========================================================================
+   AZZURACODE — Global Styles
+   Clean, modern, threads.com-inspired. Light theme only.
+   Font: IBM Plex Sans (loaded via Google Fonts in BaseLayout)
+   Brand font: Conversi (self-hosted di /fonts/Conversi.otf)
+   ========================================================================== */
+
+/* ---------- Conversi font (untuk brand name) ---------- */
+@font-face {
+  font-family: 'Conversi';
+  src: url('/fonts/Conversi.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ---------- Reset & Base ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #0f0f0f;
+  background-color: #ffffff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+a:hover {
+  color: #6b6b6b;
+}
+
+button {
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* ---------- Design tokens ---------- */
+:root {
+  /* colors — light theme, threads-inspired */
+  --color-bg: #ffffff;
+  --color-bg-subtle: #f8f8f8;
+  --color-text: #0f0f0f;
+  --color-text-muted: #6b6b6b;
+  --color-text-subtle: #8c8c8c;
+  --color-border: #efefef; /* very thin, light border */
+  --color-border-strong: #e3e3e3;
+  --color-accent: #0f0f0f;
+  --color-accent-hover: #4a4a4a;
+  --color-link: #0f0f0f;
+
+  /* spacing scale */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-8: 3rem;
+  --space-10: 4rem;
+  --space-12: 6rem;
+
+  /* typography */
+  --font-sans: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+  /* layout */
+  --max-width: 640px; /* narrow content column like threads */
+  --max-width-wide: 920px;
+  --header-height: 60px;
+
+  /* misc */
+  --radius: 8px;
+  --radius-sm: 4px;
+  --border-width: 1px;
+}
+
+/* ---------- Layout helpers ---------- */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: var(--space-4);
+}
+
+.container-wide {
+  width: 100%;
+  max-width: var(--max-width-wide);
+  margin-inline: auto;
+  padding-inline: var(--space-4);
+}
+
+.main {
+  flex: 1 0 auto;
+  padding-block: var(--space-6) var(--space-10);
+}
+
+/* ---------- Typography ---------- */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+}
+
+h1 {
+  font-size: clamp(1.5rem, 3vw + 0.8rem, 2rem);   /* lebih compact dari sebelumnya */
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: clamp(1.15rem, 1.2vw + 0.85rem, 1.4rem);  /* turun dari 1.4-1.75 */
+  margin-top: var(--space-6);
+  margin-bottom: var(--space-3);
+  letter-spacing: -0.01em;
+}
+
+h3 {
+  font-size: 1rem;                  /* turun dari 1.25rem */
+  margin-top: var(--space-5);
+  margin-bottom: var(--space-2);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+h4 {
+  font-size: 0.9rem;                /* turun dari 1.05rem */
+  margin-top: var(--space-4);
+  margin-bottom: var(--space-2);
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+h5 {
+  font-size: 0.85rem;
+  margin-top: var(--space-4);
+  margin-bottom: var(--space-2);
+  font-weight: 600;
+}
+
+h6 {
+  font-size: 0.8rem;
+  margin-top: var(--space-4);
+  margin-bottom: var(--space-2);
+  font-weight: 600;
+}
+
+p {
+  margin-bottom: var(--space-4);
+  color: var(--color-text);
+}
+
+small {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}
+
+strong {
+  font-weight: 600;
+}
+
+code {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  background: var(--color-bg-subtle);
+  padding: 0.1em 0.4em;
+  border-radius: var(--radius-sm);
+}
+
+pre {
+  font-family: var(--font-mono);
+  background: var(--color-bg-subtle);
+  padding: var(--space-4);
+  border-radius: var(--radius);
+  overflow-x: auto;
+  margin-bottom: var(--space-4);
+  border: var(--border-width) solid var(--color-border);
+}
+
+pre code {
+  background: transparent;
+  padding: 0;
+}
+
+blockquote {
+  border-left: 2px solid var(--color-border-strong);
+  padding-left: var(--space-4);
+  margin: var(--space-5) 0;
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
+ul, ol {
+  margin-bottom: var(--space-4);
+  padding-left: var(--space-5);
+}
+
+li {
+  margin-bottom: var(--space-2);
+}
+
+hr {
+  border: none;
+  border-top: var(--border-width) solid var(--color-border);
+  margin: var(--space-6) 0;
+}
+
+/* ---------- Header ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: saturate(180%) blur(12px);
+  -webkit-backdrop-filter: saturate(180%) blur(12px);
+  border-bottom: var(--border-width) solid var(--color-border);
+}
+
+.site-header__inner {
+  height: var(--header-height);
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;  /* kiri (toggle) | tengah (brand) | kanan (WA) */
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.site-header__left {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.site-header__right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space-2);
+}
+
+.site-header__brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--color-text);
+  text-decoration: none;
+  line-height: 1;
+  gap: 0;            /* hapus gap, biar margin-top subtitle kendalikan */
+  text-align: center;
+}
+
+/* Brand name dengan font Conversi (pixel/bitmap style) */
+.site-header__brand-name {
+  font-family: 'Conversi', 'IBM Plex Sans', monospace;
+  font-size: 1.4rem;
+  letter-spacing: 0.02em;
+  font-weight: normal;
+  line-height: 1;
+  display: block;
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Subtitle "by RAHMADI DIGITAL CREATIVES" — IBM Plex Sans, sangat kecil */
+.site-header__brand-sub {
+  font-family: var(--font-sans);
+  display: inline-flex;
+  align-items: baseline;
+  gap: 4px;
+  line-height: 1;
+  color: var(--color-text-subtle);
+  margin-top: 1px;       /* jarak dekat dengan brand name */
+}
+
+.site-header__brand-sub-by {
+  font-size: 0.6rem;       /* "by" — paling kecil */
+  font-weight: 400;
+  text-transform: lowercase;
+  font-style: italic;
+  letter-spacing: 0;
+}
+
+.site-header__brand-sub-name {
+  font-size: 0.65rem;      /* "RAHMADI DIGITAL CREATIVES" — sedikit lebih besar dari "by" */
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.site-header__brand:hover .site-header__brand-name {
+  color: var(--color-text-muted);
+}
+
+/* WhatsApp link di header kanan */
+.site-header__wa {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2);
+  border-radius: var(--radius-sm);
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+  font-weight: 400; /* thin, not bold */
+  transition: color 0.15s, background 0.15s;
+  text-decoration: none;
+}
+
+.site-header__wa:hover {
+  color: var(--color-text);
+  background: var(--color-bg-subtle);
+}
+
+.site-header__wa-number {
+  font-feature-settings: 'tnum';
+}
+
+@media (max-width: 640px) {
+  .site-header__wa-number {
+    /* Sembunyikan teks nomor di mobile sangat sempit, biar hanya icon */
+    display: none;
+  }
+  .site-header__wa {
+    padding: var(--space-2);
+  }
+  /* Brand sedikit lebih kecil di mobile agar fit dengan 3 kolom */
+  .site-header__brand-name {
+    font-size: 1.15rem;
+  }
+  .site-header__brand-sub-by {
+    font-size: 0.55rem;
+  }
+  .site-header__brand-sub-name {
+    font-size: 0.58rem;
+  }
+}
+
+@media (min-width: 641px) {
+  .site-header__brand-name {
+    font-size: 1.5rem;
+  }
+}
+
+/* ---------- Toggle button (selalu tampil, mobile + desktop) ---------- */
+.site-nav__toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  color: var(--color-text);
+  transition: background 0.15s, color 0.15s;
+}
+
+.site-nav__toggle:hover {
+  background: var(--color-bg-subtle);
+  color: var(--color-text-muted);
+}
+
+.site-nav__toggle[aria-expanded='true'] {
+  background: var(--color-bg-subtle);
+}
+
+/* ---------- Drawer nav (slide-in dari kiri) ---------- */
+.site-nav {
+  position: fixed;
+  inset: 0 auto 0 0;
+  width: 300px;
+  max-width: 85vw;
+  background: var(--color-bg);
+  border-right: var(--border-width) solid var(--color-border);
+  transform: translateX(-100%);
+  transition: transform 0.25s ease, visibility 0.25s;
+  visibility: hidden;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-3);
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.04);
+}
+
+.site-nav[data-open='true'] {
+  transform: translateX(0);
+  visibility: visible;
+  box-shadow: 4px 0 32px rgba(0, 0, 0, 0.08);
+}
+
+.site-nav__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-2) var(--space-3) var(--space-4);
+  border-bottom: var(--border-width) solid var(--color-border);
+  margin-bottom: var(--space-2);
+}
+
+.site-nav__title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-text);
+  letter-spacing: -0.01em;
+}
+
+.site-nav__close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  color: var(--color-text-muted);
+  transition: background 0.15s, color 0.15s;
+}
+
+.site-nav__close:hover {
+  background: var(--color-bg-subtle);
+  color: var(--color-text);
+}
+
+.site-nav__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-2);
+}
+
+.site-nav__link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  border-radius: var(--radius-sm);
+  transition: color 0.15s, background 0.15s;
+}
+
+.site-nav__link:hover {
+  color: var(--color-text);
+  background: var(--color-bg-subtle);
+}
+
+.site-nav__link[aria-current='page'] {
+  color: var(--color-text);
+  font-weight: 500;
+  background: var(--color-bg-subtle);
+}
+
+/* ---------- Overlay backdrop ---------- */
+.site-nav__overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+  z-index: 90;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+.site-nav__overlay[data-open='true'] {
+  opacity: 1;
+  visibility: visible;
+}
+
+@media (min-width: 768px) {
+  .site-nav__overlay[data-open='true'] {
+    background: rgba(0, 0, 0, 0.25);
+  }
+}
+
+/* ---------- Footer (tech startup style, 4-column) ---------- */
+.site-footer {
+  border-top: var(--border-width) solid var(--color-border);
+  padding-block: var(--space-8) var(--space-6);
+  margin-top: auto;
+  background: var(--color-bg);
+}
+
+.site-footer__inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+  font-size: 0.875rem;
+}
+
+.site-footer__brand-col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  max-width: 320px;
+}
+
+.site-footer__brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: var(--color-text);
+  text-decoration: none;
+  line-height: 1;
+  gap: 0;
+  /* padding-top biarkan default — biar sejajar dengan col-title */
+}
+
+.site-footer__brand-name {
+  font-family: 'Conversi', 'IBM Plex Sans', monospace;
+  font-size: 1.4rem;
+  letter-spacing: 0.02em;
+  font-weight: normal;
+  line-height: 1;
+  display: block;
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.site-footer__brand-sub {
+  font-family: var(--font-sans);
+  display: inline-flex;
+  align-items: baseline;
+  gap: 4px;
+  line-height: 1;
+  color: var(--color-text-subtle);
+  margin-top: 1px;
+}
+
+.site-footer__brand-sub-by {
+  font-size: 0.6rem;
+  font-weight: 400;
+  text-transform: lowercase;
+  font-style: italic;
+  letter-spacing: 0;
+}
+
+.site-footer__brand-sub-name {
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.site-footer__tagline {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  line-height: 1.55;
+  margin: 0;
+}
+
+.site-footer__col-title {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text);
+  margin: 0 0 var(--space-3) 0;
+  line-height: 1;
+}
+
+.site-footer__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.site-footer__list a {
+  color: var(--color-text-muted);
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: color 0.15s;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.site-footer__list a:hover {
+  color: var(--color-text);
+}
+
+.site-footer__list-icon {
+  display: inline-flex;
+  color: var(--color-text-subtle);
+}
+
+.site-footer__bottom {
+  margin-top: var(--space-6);
+  padding-top: var(--space-4);
+  border-top: var(--border-width) solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  font-size: 0.78rem;
+  color: var(--color-text-subtle);
+}
+
+@media (min-width: 640px) {
+  .site-footer__inner {
+    grid-template-columns: 2fr 1fr;
+    gap: var(--space-8);
+  }
+}
+
+@media (min-width: 900px) {
+  .site-footer__inner {
+    grid-template-columns: 2fr 1fr 1fr 1.2fr;
+    gap: var(--space-6);
+  }
+  .site-footer__bottom {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+/* ---------- Breadcrumbs ---------- */
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-6);
+}
+
+.breadcrumbs a:hover {
+  color: var(--color-text);
+}
+
+.breadcrumbs__separator {
+  color: var(--color-text-subtle);
+  display: inline-flex;
+}
+
+/* ---------- Hero / homepage ---------- */
+.hero {
+  padding-block: var(--space-6) var(--space-5);
+  border-bottom: var(--border-width) solid var(--color-border);
+  margin-bottom: var(--space-6);
+}
+
+.hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-4);
+}
+
+.hero__title {
+  margin-bottom: var(--space-4);
+}
+
+.hero__description {
+  font-size: 1.05rem;
+  color: var(--color-text-muted);
+  max-width: 36ch;
+}
+
+.hero__cta {
+  display: flex;
+  flex-wrap: nowrap;          /* selalu inline, tidak numpuk */
+  gap: var(--space-2);
+  margin-top: var(--space-5);
+}
+
+/* ---------- Buttons (compact) ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 7px 14px;          /* lebih compact dari sebelumnya */
+  font-size: 0.85rem;
+  font-weight: 500;
+  line-height: 1.2;
+  border-radius: var(--radius-sm);
+  border: var(--border-width) solid transparent;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;             /* jangan menyusut saat container sempit */
+}
+
+.btn svg {
+  flex-shrink: 0;
+}
+
+.btn--primary {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+.btn--primary:hover {
+  background: var(--color-accent-hover);
+  color: #fff;
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--color-text);
+  border-color: var(--color-border-strong);
+}
+
+.btn--ghost:hover {
+  background: var(--color-bg-subtle);
+  color: var(--color-text);
+}
+
+/* Container CTA — paksa inline walau di mobile */
+.hero__cta,
+.cta-card .hero__cta {
+  flex-wrap: nowrap;
+}
+
+@media (max-width: 480px) {
+  .btn {
+    padding: 6px 10px;
+    font-size: 0.8rem;
+  }
+}
+
+/* ---------- Article list ---------- */
+.section-title {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: var(--space-5);
+  padding-bottom: var(--space-3);
+  border-bottom: var(--border-width) solid var(--color-border);
+}
+
+.section-title h2 {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.section-title a {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+.section-title a:hover {
+  color: var(--color-text);
+}
+
+.article-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.article-card {
+  display: block;
+  padding: var(--space-4) 0;
+  border-bottom: var(--border-width) solid var(--color-border);
+}
+
+.article-card:last-child {
+  border-bottom: none;
+}
+
+.article-card__meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-2);
+}
+
+.article-card__title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: var(--space-2);
+  color: var(--color-text);
+  line-height: 1.35;
+}
+
+.article-card:hover .article-card__title {
+  color: var(--color-accent-hover);
+}
+
+.article-card__excerpt {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+/* ---------- Article detail ---------- */
+.article-header {
+  margin-bottom: var(--space-6);
+  padding-bottom: var(--space-5);
+  border-bottom: var(--border-width) solid var(--color-border);
+}
+
+.article-header__meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-3);
+}
+
+.article-header h1 {
+  font-size: clamp(1.6rem, 3vw + 1rem, 2.1rem);
+  margin-bottom: var(--space-3);
+}
+
+.article-header__description {
+  font-size: 1.05rem;
+  color: var(--color-text-muted);
+}
+
+.article-body {
+  font-size: 1rem;
+  line-height: 1.75;
+  max-width: 680px;
+}
+
+.article-body h2 {
+  margin-top: var(--space-8);
+}
+
+.article-body img {
+  border-radius: var(--radius);
+  margin: var(--space-5) 0;
+  border: var(--border-width) solid var(--color-border);
+}
+
+.article-body a {
+  color: var(--color-text);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1px;
+  text-decoration-color: var(--color-border-strong);
+}
+
+.article-body a:hover {
+  text-decoration-color: var(--color-text);
+}
+
+
+/* ---------- Static page (about, privacy, etc.) ---------- */
+.page-header {
+  margin-bottom: var(--space-6);
+  padding-bottom: var(--space-5);
+  border-bottom: var(--border-width) solid var(--color-border);
+}
+
+.page-header h1 {
+  font-size: clamp(1.25rem, 1.5vw + 1rem, 1.5rem); /* lebih kecil dari default h1 */
+  margin-bottom: var(--space-2);
+  letter-spacing: -0.01em;
+}
+
+.page-header__meta {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+.page-body {
+  font-size: 1rem;
+  line-height: 1.75;
+  max-width: 680px;
+}
+
+.page-body h2 {
+  margin-top: var(--space-8);
+}
+
+.page-body ul,
+.page-body ol {
+  margin-block: var(--space-4);
+}
+
+/* ---------- Contact page specifics ---------- */
+.contact-list {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-5) 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.contact-list li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius);
+  margin: 0;
+}
+
+.contact-list a {
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+.contact-list a:hover {
+  color: var(--color-accent-hover);
+}
+
+/* ---------- Misc ---------- */
+.text-muted {
+  color: var(--color-text-muted);
+}
+
+.divider {
+  height: 1px;
+  background: var(--color-border);
+  margin: var(--space-6) 0;
+  border: none;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-bg);
+  border: var(--border-width) solid var(--color-border-strong);
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+}
+
+.skip-link:focus {
+  left: var(--space-4);
+  top: var(--space-4);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-text);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+::selection {
+  background: var(--color-text);
+  color: #fff;
+}
+
+/* ---------- Floating Action Button (Telegram) ---------- */
+.fab {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 60;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: transparent;            /* hapus background putih */
+  box-shadow: none;                    /* hapus shadow */
+  transition: transform 0.2s ease;
+  opacity: 0;
+  animation: fab-fade-in 0.3s ease 0.4s forwards;
+}
+
+.fab:hover {
+  transform: scale(1.1);
+}
+
+.fab:active {
+  transform: scale(0.95);
+}
+
+.fab svg {
+  width: 44px;
+  height: 44px;
+  display: block;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.18));
+}
+
+@keyframes fab-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (min-width: 768px) {
+  .fab {
+    right: 28px;
+    bottom: 28px;
+    width: 60px;
+    height: 60px;
+  }
+  .fab svg {
+    width: 48px;
+    height: 48px;
+  }
+}
+
+/* Pindahkan FAB ke atas saat mobile nav drawer terbuka */
+.site-nav[data-open='true'] ~ .fab,
+.site-nav__overlay[data-open='true'] ~ .fab {
+  z-index: 80;
+}
+
+/* ---------- Social Proof Notification (bottom-left) ---------- */
+.social-proof {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  z-index: 55;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 14px;
+  background: var(--color-bg);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.04);
+  max-width: 320px;
+  min-width: 260px;
+  opacity: 0;
+  transform: translateY(8px) scale(0.96);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+}
+
+.social-proof[data-visible='true'] {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.social-proof__icon {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-sm);
+  background: var(--color-bg-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text);
+}
+
+.social-proof__content {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.social-proof__text {
+  font-size: 0.78rem;
+  color: var(--color-text);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.social-proof__city {
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.social-proof__service {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.social-proof__time {
+  font-size: 0.7rem;
+  color: var(--color-text-muted);
+  margin: 2px 0 0 0;
+  line-height: 1;
+}
+
+.social-proof__close {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  border-radius: var(--radius-sm);
+  color: var(--color-text-subtle);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s, color 0.15s;
+  margin-top: -2px;
+  margin-right: -4px;
+}
+
+.social-proof__close:hover {
+  background: var(--color-bg-subtle);
+  color: var(--color-text);
+}
+
+@media (min-width: 768px) {
+  .social-proof {
+    left: 28px;
+    bottom: 28px;
+    max-width: 340px;
+  }
+}
+
+/* Di mobile sangat sempit, kecilkan padding & font */
+@media (max-width: 480px) {
+  .social-proof {
+    left: 12px;
+    bottom: 12px;
+    /* TIDAK pakai right: supaya tidak stretch & overlap dengan FAB di pojok kanan bawah */
+    max-width: calc(100vw - 100px);  /* sisakan ruang untuk FAB */
+    min-width: 0;
+    padding: 10px 12px;
+    gap: 10px;
+  }
+  .social-proof__icon {
+    width: 32px;
+    height: 32px;
+  }
+  .social-proof__text {
+    font-size: 0.74rem;
+  }
+  .social-proof__service {
+    font-size: 0.8rem;
+  }
+}

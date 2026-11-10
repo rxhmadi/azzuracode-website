@@ -1,0 +1,85 @@
+---
+/**
+ * /blog — Daftar artikel terbaru.
+ */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { SITE } from '../../lib/site';
+import { getPublishedArticles, formatDateID, readingTime } from '../../lib/articles';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Icon from '../../components/Icon.astro';
+
+const articles = await getPublishedArticles();
+
+const breadcrumbs = [
+  { name: 'Beranda', href: '/' },
+  { name: 'Artikel' },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Blog',
+  name: `Artikel — ${SITE.name}`,
+  url: `${SITE.url}/blog`,
+  inLanguage: 'id-ID',
+  publisher: {
+    '@type': 'Organization',
+    name: SITE.name,
+    url: SITE.url,
+  },
+  blogPost: articles.map((article) => ({
+    '@type': 'BlogPosting',
+    headline: article.data.title,
+    url: `${SITE.url}/blog/${article.id}`,
+    datePublished: article.data.pubDate.toISOString(),
+    dateModified: (article.data.updatedDate ?? article.data.pubDate).toISOString(),
+    author: { '@type': 'Person', name: article.data.author },
+    description: article.data.description,
+  })),
+};
+---
+
+<BaseLayout
+  title="Artikel Jasa Pembuatan Website"
+  description={`Artikel ${SITE.name} tentang jasa pembuatan website untuk UMKM dan bisnis lokal di berbagai kota Indonesia.`}
+  type="website"
+  schema={schema}
+>
+  <Breadcrumbs items={breadcrumbs} />
+
+  <header class="page-header">
+    <h1>Artikel</h1>
+    <p class="page-header__meta">
+      {articles.length} artikel · diperbarui rutin
+    </p>
+  </header>
+
+  {articles.length === 0 ? (
+    <p>Belum ada artikel. Silakan kembali lagi nanti.</p>
+  ) : (
+    <div class="article-list">
+      {articles.map((article) => {
+        const minutes = readingTime(article.body);
+        return (
+          <a class="article-card" href={`/blog/${article.id}`}>
+            <div class="article-card__meta">
+              <Icon name="calendar" size={14} />
+              <span>{formatDateID(article.data.pubDate)}</span>
+              <span aria-hidden="true">·</span>
+              <Icon name="clock" size={14} />
+              <span>{minutes} menit baca</span>
+            </div>
+            <h2 class="article-card__title">{article.data.title}</h2>
+            <p class="article-card__excerpt">{article.data.description}</p>
+            {article.data.tags.length > 0 && (
+              <div style="display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-3);">
+                {article.data.tags.map((tag) => (
+                  <span style="font-size: 0.75rem; color: var(--color-text-muted); padding: 2px 8px; border: var(--border-width) solid var(--color-border); border-radius: 999px;">{tag}</span>
+                ))}
+              </div>
+            )}
+          </a>
+        );
+      })}
+    </div>
+  )}
+</BaseLayout>

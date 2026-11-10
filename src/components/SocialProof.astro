@@ -1,0 +1,181 @@
+---
+/**
+ * SocialProof.astro — Notifikasi social proof pojok kiri bawah.
+ *
+ * Muncul tiba-tiba, tampil ~5 detik, hilang, jeda ~12 detik,
+ * muncul lagi dengan notif lain. Cycle berulang.
+ *
+ * Konten disesuaikan dengan niche jasa pembuatan website:
+ * "Seseorang di [kota] baru saja memesan [layanan]"
+ *
+ * Pure inline JS — no hydration framework, SEO-friendly.
+ */
+import Icon from './Icon.astro';
+
+// Data notifikasi social proof (akan di-cycle secara random)
+const PROOFS = [
+  { city: 'Jakarta', service: 'landing page', icon: 'square-equal', minutes: 5 },
+  { city: 'Bandung', service: 'company profile', icon: 'file-text', minutes: 12 },
+  { city: 'Surabaya', service: 'toko online', icon: 'cart', minutes: 8 },
+  { city: 'Yogyakarta', service: 'website company profile', icon: 'file-text', minutes: 23 },
+  { city: 'Jakarta', service: 'web app custom', icon: 'code', minutes: 17 },
+  { city: 'Bandung', service: 'toko online', icon: 'cart', minutes: 4 },
+  { city: 'Surabaya', service: 'landing page', icon: 'square-equal', minutes: 31 },
+  { city: 'Bali', service: 'company profile', icon: 'file-text', minutes: 9 },
+  { city: 'Semarang', service: 'toko online', icon: 'cart', minutes: 14 },
+  { city: 'Jakarta', service: 'SEO optimization', icon: 'search', minutes: 27 },
+  { city: 'Malang', service: 'landing page', icon: 'square-equal', minutes: 6 },
+  { city: 'Bandung', service: 'web app custom', icon: 'code', minutes: 19 },
+];
+---
+
+<div
+  class="social-proof"
+  data-social-proof
+  role="status"
+  aria-live="polite"
+  aria-atomic="true"
+  hidden
+>
+  <div class="social-proof__icon" data-proof-icon>
+    <Icon name="square-equal" size={20} />
+  </div>
+  <div class="social-proof__content">
+    <p class="social-proof__text">
+      <span class="social-proof__city" data-proof-city>Jakarta</span>
+      baru saja memesan
+    </p>
+    <p class="social-proof__service" data-proof-service>landing page</p>
+    <p class="social-proof__time" data-proof-time>5 menit lalu</p>
+  </div>
+  <button
+    class="social-proof__close"
+    type="button"
+    aria-label="Tutup notifikasi"
+    data-proof-close
+  >
+    <Icon name="x" size={14} />
+  </button>
+</div>
+
+<script>
+  // Pure inline JS — no hydration framework needed
+  const PROOFS = [
+    { city: 'Jakarta', service: 'landing page', icon: 'square-equal', minutes: 5 },
+    { city: 'Bandung', service: 'company profile', icon: 'file-text', minutes: 12 },
+    { city: 'Surabaya', service: 'toko online', icon: 'cart', minutes: 8 },
+    { city: 'Yogyakarta', service: 'website company profile', icon: 'file-text', minutes: 23 },
+    { city: 'Jakarta', service: 'web app custom', icon: 'code', minutes: 17 },
+    { city: 'Bandung', service: 'toko online', icon: 'cart', minutes: 4 },
+    { city: 'Surabaya', service: 'landing page', icon: 'square-equal', minutes: 31 },
+    { city: 'Bali', service: 'company profile', icon: 'file-text', minutes: 9 },
+    { city: 'Semarang', service: 'toko online', icon: 'cart', minutes: 14 },
+    { city: 'Jakarta', service: 'SEO optimization', icon: 'search', minutes: 27 },
+    { city: 'Malang', service: 'landing page', icon: 'square-equal', minutes: 6 },
+    { city: 'Bandung', service: 'web app custom', icon: 'code', minutes: 19 },
+  ];
+
+  // Icon SVG path mapping (Lucide) — harus sync dengan Icon.astro
+  const ICONS = {
+    'square-equal': '<rect width="18" height="18" x="3" y="3" rx="2"/><path d="M7 10h10"/><path d="M7 14h10"/>',
+    'file-text': '<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/>',
+    cart: '<circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>',
+    code: '<polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>',
+    search: '<circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>',
+  };
+
+  function iconSvg(name: string, size: number = 20): string {
+    const path = ICONS[name as keyof typeof ICONS] || ICONS['file-text'];
+    return `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${path}</svg>`;
+  }
+
+  function formatTime(minutes: number): string {
+    if (minutes < 1) return 'baru saja';
+    if (minutes === 1) return '1 menit lalu';
+    if (minutes < 60) return `${minutes} menit lalu`;
+    const hours = Math.floor(minutes / 60);
+    if (hours === 1) return '1 jam lalu';
+    return `${hours} jam lalu`;
+  }
+
+  const proof = document.querySelector<HTMLElement>('[data-social-proof]');
+  const cityEl = document.querySelector<HTMLElement>('[data-proof-city]');
+  const serviceEl = document.querySelector<HTMLElement>('[data-proof-service]');
+  const timeEl = document.querySelector<HTMLElement>('[data-proof-time]');
+  const iconEl = document.querySelector<HTMLElement>('[data-proof-icon]');
+  const closeBtn = document.querySelector<HTMLElement>('[data-proof-close]');
+
+  if (!proof || !cityEl || !serviceEl || !timeEl || !iconEl) {
+    // kalau elemen tidak ada, skip semua
+  } else {
+    let currentIndex = Math.floor(Math.random() * PROOFS.length);
+    let isPaused = false;
+    let isHidden = false; // user dismiss permanently?
+    let showTimer: ReturnType<typeof setTimeout> | null = null;
+    let hideTimer: ReturnType<typeof setTimeout> | null = null;
+
+    function renderProof(index: number) {
+      const data = PROOFS[index];
+      cityEl!.textContent = `Seseorang di ${data.city}`;
+      serviceEl!.textContent = data.service;
+      timeEl!.textContent = formatTime(data.minutes);
+      iconEl!.innerHTML = iconSvg(data.icon, 20);
+    }
+
+    function showProof() {
+      if (isHidden) return;
+      // pilih index yang berbeda dari sebelumnya
+      let nextIndex: number;
+      do {
+        nextIndex = Math.floor(Math.random() * PROOFS.length);
+      } while (nextIndex === currentIndex && PROOFS.length > 1);
+      currentIndex = nextIndex;
+      renderProof(currentIndex);
+
+      proof!.hidden = false;
+      // trigger reflow then add visible class for transition
+      void (proof as HTMLElement).offsetWidth;
+      proof!.setAttribute('data-visible', 'true');
+
+      // schedule hide
+      hideTimer = setTimeout(hideProof, 5500);
+    }
+
+    function hideProof() {
+      proof!.setAttribute('data-visible', 'false');
+      // setelah transition selesai (300ms), set hidden
+      setTimeout(() => {
+        proof!.hidden = true;
+      }, 350);
+
+      // schedule next show (jeda 12 detik)
+      showTimer = setTimeout(showProof, 12000);
+    }
+
+    // pause on hover — UX friendly
+    proof.addEventListener('mouseenter', () => {
+      isPaused = true;
+      if (hideTimer) clearTimeout(hideTimer);
+    });
+    proof.addEventListener('mouseleave', () => {
+      if (!isPaused) return;
+      isPaused = false;
+      // lanjutkan countdown hide setelah hover
+      hideTimer = setTimeout(hideProof, 2000);
+    });
+
+    // dismiss permanently saat klik ×
+    closeBtn?.addEventListener('click', () => {
+      isHidden = true;
+      proof!.setAttribute('data-visible', 'false');
+      setTimeout(() => {
+        proof!.hidden = true;
+      }, 350);
+      if (showTimer) clearTimeout(showTimer);
+      if (hideTimer) clearTimeout(hideTimer);
+    });
+
+    // mulai cycle — delay 4 detik setelah page load
+    setTimeout(showProof, 4000);
+  }
+</script>

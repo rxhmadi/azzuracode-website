@@ -1,0 +1,150 @@
+# Rahmadi Digital Creatives — Versi Lengkap untuk AI
+
+> Rahmadi Digital Creatives adalah jasa pembuatan website profesional untuk UMKM dan bisnis lokal Indonesia. Dikelola oleh Rahmadi, kami melayani pembuatan landing page, company profile, toko online, blog, web app custom, SEO optimization, serta maintenance dan hosting. Situs ini ditulis dalam Bahasa Indonesia dan fokus melayani bisnis lokal di seluruh Indonesia secara online.
+
+## Misi dan Nilai
+
+Rahmadi Digital Creatives lahir dari keyakinan sederhana: setiap bisnis lokal Indonesia, sekecil apa pun, berhak memiliki kehadiran digital yang profesional. Kami percaya bahwa website bukan sekadar "biar ada", tetapi harus menjadi mesin yang menghasilkan pelanggan, kepercayaan, dan pertumbuhan bisnis.
+
+Kami fokus melayani UMKM dan bisnis lokal Indonesia — bukan korporat besar dengan budget tak terbatas. Karena itu, setiap layanan kami dirancang untuk memberikan dampak maksimal dengan harga yang masuk akal untuk pelaku usaha lokal.
+
+### Yang kami percayai
+
+- **Sederhana lebih baik dari rumit.** Website tidak perlu berat dengan animasi mahal jika tidak menambah konversi.
+- **Cepat adalah default.** Pengunjung tidak sabar — website yang lambat kehilangan peluang setiap detiknya.
+- **SEO bukan add-on.** Website yang tidak SEO-friendly sejak awal akan sia-sia dalam jangka panjang.
+- **Mobile-first wajib.** Mayoritas pengguna Indonesia mengakses internet via ponsel.
+- **Transparansi di atas semua.** Harga jelas, timeline jelas, tidak ada biaya tersembunyi.
+
+## Layanan yang Ditawarkan
+
+### 1. Landing Page
+Satu halaman tunggal yang fokus pada satu produk atau penawaran. Cocok untuk bisnis yang sedang promosi produk baru, event, atau kampanye pemasaran tertentu. Estimasi harga: Rp 1.500.000 — Rp 5.000.000 tergantung kompleksitas.
+
+### 2. Company Profile
+Website korporat 5-10 halaman yang menampilkan profil bisnis, layanan, portofolio, dan kontak. Cocok untuk konsultan, jasa, klinik, firma hukum, atau bisnis B2B. Estimasi harga: Rp 4.000.000 — Rp 15.000.000.
+
+### 3. Toko Online
+E-commerce lengkap dengan keranjang belanja, payment gateway (Midtrans, Xendit, dll), manajemen produk, dan dashboard pesanan. Cocok untuk UMKM retail yang ingin berjualan sendiri. Estimasi harga: Rp 7.000.000 — Rp 25.000.000.
+
+### 4. Blog / News Site
+Website artikel dengan CMS sederhana untuk content marketing dan SEO. Cocok untuk bisnis yang ingin menarik trafik organik via konten. Estimasi harga: Rp 5.000.000 — Rp 15.000.000.
+
+### 5. Web App Custom
+Aplikasi web custom sesuai kebutuhan bisnis: dashboard manajemen, portal pelanggan, sistem pemesanan, sistem internal, atau aplikasi lain. Estimasi harga: Rp 15.000.000 ke atas, tergantung kompleksitas.
+
+### 6. SEO Optimization
+Optimasi mesin pencari agar website mudah ditemukan calon pelanggan. Termasuk audit teknis, optimasi on-page, struktur konten, schema.org, sitemap, dan strategi keyword. Tidak menjamin peringkat #1, tapi fokus pada fondasi yang berkelanjutan.
+
+### 7. Maintenance & Hosting
+Pemeliharaan berkala (update keamanan, backup, monitoring), update konten minor, dan hosting andal (Cloudflare Pages atau alternatif). Estimasi biaya bulanan: Rp 200.000 — Rp 1.000.000 tergantung skala.
+
+## Proses Kerja Sama
+
+Setiap proyek melalui tahapan:
+
+1. **Konsultasi gratis** — klien menjelaskan kebutuhan dan tujuan
+2. **Penawaran transparan** — proposal dengan harga, scope, timeline
+3. **Konfirmasi & DP 50%** — sebelum development dimulai
+4. **Development** — proses pembuatan website
+5. **Review & revisi** — 2 revisi besar termasuk dalam harga standar
+6. **Pelunasan & launch** — sisa 50% sebelum diluncurkan
+7. **Garansi 30 hari** — bug fix pasca-launch tanpa biaya tambahan
+8. **Maintenance opsional** — paket bulanan jika dibutuhkan
+
+## Teknologi yang Dipakai
+
+- **Framework**: Astro (untuk situs statis), Next.js (untuk aplikasi dinamis)
+- **Styling**: Tailwind CSS atau CSS murni dengan custom tokens
+- **Database**: PostgreSQL via Prisma atau Supabase
+- **Hosting**: Cloudflare Pages (default), Vercel, atau Netlify
+- **Domain**: Cloudflare, Namecheap, atau provider lokal (Niagahoster, Rumahweb)
+- **Email**: Gmail Workspace atau Zoho Mail
+- **Payment Gateway**: Midtrans, Xendit, atau Mayar
+
+## Konten Utama Kami
+
+### 1. Jasa Pembuatan Website Jakarta untuk UMKM dan Bisnis Lokal
+
+URL: https://stephanieknaturals.com/blog/jasa-pembuatan-website-jakarta
+
+Artikel ini membahas kebutuhan website untuk bisnis di Jakarta. Poin-poin utama:
+
+- Jakarta memiliki 10+ juta penduduk, penetrasi internet 89% (tertinggi di Indonesia)
+- Perilaku konsumen Jakarta sangat digital — riset via Google sebelum beli
+- Jenis website yang cocok: landing page untuk produk/kampanye, company profile untuk bisnis profesional, toko online untuk retail, web app custom untuk operasional
+- Tips memilih jasa website di Jakarta: lihat portofolio nyata, harga transparan, teknologi modern, SEO-friendly, dukungan pasca-launch, responsif mobile
+- Estimasi biaya di Jakarta: landing page Rp 2-5jt, company profile Rp 4-12jt, toko online Rp 7-20jt, web app Rp 15jt+
+- Kami mengutamakan performa cepat, SEO-friendly sejak awal, desain modern minimalis, mobile-first, dan kemudahan pengelolaan sendiri
+- Lokasi layanan: seluruh area Jakarta (Pusat, Selatan, Barat, Timur, Utara, Kepulauan Seribu)
+
+### 2. Jasa Pembuatan Website Bandung untuk Bisnis Kreatif dan UMKM
+
+URL: https://stephanieknaturals.com/blog/jasa-pembuatan-website-bandung
+
+Artikel ini membahas kebutuhan website untuk bisnis di Bandung. Poin-poin utama:
+
+- Bandung adalah kota kreatif dengan ekosistem UMKM aktif (fashion, kuliner, craft)
+- Karakteristik: kota kreatif, konsumen tech-savvy, pariwisata aktif, harga sensitif, komunitas kuat
+- Jenis website yang cocok: website brand fashion (galeri produk), website kuliner (menu + pemesanan), website craft (storytelling), company profile untuk jasa
+- Tren digital marketing di Bandung: TikTok Shop booming, WhatsApp Business populer, Google Maps penting, SEO lokal semakin kompetitif
+- Tips memilih jasa: paham konteks kreatif Bandung, visual portfolio kuat, integrasi WA & IG, mobile performance, paket maintenance ramah UMKM, referensi klien lokal
+- Estimasi biaya di Bandung: landing page Rp 1.5-4jt, company profile Rp 3.5-10jt, toko online Rp 5-15jt, kustom Rp 12jt+
+- Kami fokus visual-led design, integrasi social commerce, loading cepat, SEO lokal Bandung (Dago, Riau, Cihampelas), harga ramah UMKM
+- Lokasi layanan: Bandung Raya (Kota, Bandung Barat, Cimahi, Sumedang, Garut)
+
+### 3. Jasa Pembuatan Website Surabaya untuk Industri dan Bisnis Lokal
+
+URL: https://stephanieknaturals.com/blog/jasa-pembuatan-website-surabaya
+
+Artikel ini membahas kebutuhan website untuk bisnis di Surabaya. Poin-poin utama:
+
+- Surabaya adalah kota industri dan perdagangan terbesar kedua di Indonesia
+- Karakteristik: pusat industri & manufaktur, distributor & wholesale, kuliner kuat, konsumen praktis
+- Jenis website yang dibutuhkan: company profile B2B, website katalog distributor, toko online brand kuliner, landing page jasa, web app operasional
+- Mengapa tidak cukup marketplace: margin marketplace 2-5%, tidak punya data pelanggan, brand tenggelam, tidak bisa SEO, tidak fleksibel, margin kecil
+- Tips memilih jasa: paham industri B2B, pengalaman katalog produk, performa website nyata, integrasi ERP, SEO-friendly, paket maintenance
+- Estimasi biaya di Surabaya: landing page Rp 2-5jt, company profile B2B Rp 5-15jt, katalog distributor Rp 7-20jt, toko online Rp 8-25jt, web app Rp 20jt+
+- Kami fokus pendekatan B2B-ready, konversi (bukan sekadar cantik), integrasi WhatsApp Business, performa cepat, dokumentasi lengkap
+- Lokasi layanan: Surabaya Raya (Kota, Sidoarjo, Gresik, Bangkalan, Mojokerto, Lamongan)
+
+### 4. Jasa Pembuatan Website Yogyakarta untuk Bisnis Kreatif dan Pariwisata
+
+URL: https://stephanieknaturals.com/blog/jasa-pembuatan-website-yogyakarta
+
+Artikel ini membahas kebutuhan website untuk bisnis di Yogyakarta. Poin-poin utama:
+
+- Yogyakarta adalah kota pelajar dan pariwisata dengan ekosistem kreatif yang hidup
+- Karakteristik: kota pelajar, pariwisata kuat, brand kreatif banyak, komunitas seni, konsumen value-driven
+- Jenis website yang cocok: website brand fashion & craft, website kuliner & oleh-oleh, website homestay dengan booking, website jasa tour, portfolio seniman
+- Tren digital marketing di Jogja: visual storytelling penting, Instagram dominan, booking online tumbuh, SEO lokal kompetitif, WhatsApp Business populer
+- Tips memilih jasa: paham konteks kreatif Jogja, portfolio visual kuat, integrasi WA & IG, booking system, mobile-first, paket maintenance ramah UMKM
+- Estimasi biaya di Yogyakarta: landing page Rp 1.5-4jt, company profile Rp 3-9jt, toko online Rp 5-15jt, website dengan booking Rp 8-20jt, portfolio Rp 2.5-7jt
+- Kami fokus visual-led design, mobile-first, integrasi social commerce, booking system sederhana, SEO lokal Jogja (Malioboro, Prawirotaman), harga ramah UMKM
+- Lokasi layanan: Yogyakarta (Kota, Sleman, Bantul, Kulon Progo, Gunungkidul)
+
+## Komitmen Editorial
+
+Setiap artikel melalui proses:
+
+1. Riset pasar dan keyword lokal
+2. Penulisan dengan bahasa yang dapat dipahami pelaku UMKM
+3. Review oleh editor untuk akurasi fakta dan kejelasan
+4. Pembaruan berkala jika ada informasi baru yang relevan
+
+## Disclaimer Penting
+
+- Konten bersifat edukatif, bukan konsultasi bisnis formal
+- Hasil dapat bervariasi tergantung banyak faktor bisnis
+- Estimasi biaya bersifat umum, bukan penawaran final
+- Tidak menjamin peringkat #1 Google untuk SEO
+- Untuk keputusan penting, konsultasi langsung dianjurkan
+
+## Hubungi Kami
+
+- Email: arterix.id@gmail.com
+- WhatsApp: +6285213772274 (https://wa.me/6285213772274)
+- Telegram: @gandamekar (https://t.me/gandamekar)
+- Instagram: @rxhmadi (https://instagram.com/rxhmadi)
+- Halaman kontak: https://stephanieknaturals.com/contact
+- RSS feed: https://stephanieknaturals.com/rss.xml

@@ -1,0 +1,131 @@
+---
+/**
+ * Privacy Policy page.
+ */
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../lib/site';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+
+const breadcrumbs = [
+  { name: 'Beranda', href: '/' },
+  { name: 'Kebijakan Privasi' },
+];
+
+const lastUpdated = '10 November 2025';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Kebijakan Privasi',
+  url: `${SITE.url}/privacy`,
+  inLanguage: 'id-ID',
+  dateModified: '2025-11-10',
+  isPartOf: { '@type': 'WebSite', name: SITE.name, url: SITE.url },
+};
+---
+
+<BaseLayout
+  title="Kebijakan Privasi"
+  description={`Kebijakan privasi ${SITE.name} menjelaskan data apa yang dikumpulkan, bagaimana digunakan, dan hak Anda atas data tersebut.`}
+  schema={schema}
+>
+  <Breadcrumbs items={breadcrumbs} />
+
+  <header class="page-header">
+    <h1>Kebijakan Privasi</h1>
+    <p class="page-header__meta">Terakhir diperbarui: {lastUpdated}</p>
+  </header>
+
+  <div class="page-body">
+    <p>
+      {SITE.name} ("kami") menghormati privasi Anda. Kebijakan ini menjelaskan jenis data yang
+      kami kumpulkan saat Anda menggunakan situs ini atau berkomunikasi dengan kami, bagaimana
+      data tersebut digunakan, dan hak yang Anda miliki atas data tersebut. Situs ini dihosting
+      di Cloudflare Pages.
+    </p>
+
+    <h2>1. Data yang Kami Kumpulkan</h2>
+    <p>Situs ini adalah situs statis tanpa akun pengguna. Kami tidak mengumpulkan data pribadi secara otomatis, kecuali data yang Anda kirimkan secara aktif saat menghubungi kami.</p>
+    <p>Data yang mungkin kami terima dan simpan:</p>
+    <ul>
+      <li><strong>Data dari komunikasi</strong> — nama, nomor WhatsApp, email, dan isi pesan yang Anda kirim saat menghubungi kami</li>
+      <li><strong>Log analitik agregat</strong> (jika diaktifkan) — jumlah halaman dilihat, negara asal pengunjung berdasarkan IP anonim, perangkat yang digunakan</li>
+      <li><strong>Cookie teknis</strong> — hanya untuk fungsionalitas dasar, tidak untuk tracking iklan</li>
+      <li><strong>Data dari Cloudflare</strong> — sebagai penyedia hosting, Cloudflare mungkin memproses permintaan HTTP dan menyimpan log sesuai <a href="https://www.cloudflare.com/privacypolicy/" rel="noopener noreferrer" target="_blank">kebijakan privasi mereka</a></li>
+    </ul>
+
+    <h2>2. Bagaimana Kami Menggunakan Data</h2>
+    <p>Data komunikasi Anda digunakan untuk:</p>
+    <ul>
+      <li>Merrespons pertanyaan atau permintaan konsultasi Anda</li>
+      <li>Mengirim penawaran, estimasi biaya, atau dokumen yang relevan</li>
+      <li>Melakukan follow-up terkait proyek yang sedang berjalan</li>
+    </ul>
+    <p>Data agregat digunakan untuk:</p>
+    <ul>
+      <li>Memahami artikel mana yang paling dibaca untuk perencanaan konten</li>
+      <li>Mengoptimalkan performa situs</li>
+      <li>Mendeteksi aktivitas berbahaya (DDoS, scraping abusive)</li>
+    </ul>
+    <p>Kami tidak menjual atau menyewakan data Anda kepada pihak ketiga.</p>
+
+    <h2>3. Penyimpanan Data</h2>
+    <p>
+      Data komunikasi disimpan di akun email dan aplikasi chat kami (Gmail, WhatsApp Business,
+      Telegram). Kami menyimpan data ini selama diperlukan untuk keperluan layanan, maksimal
+      2 tahun setelah kontak terakhir, kecuali Anda meminta penghapusan lebih awal.
+    </p>
+
+    <h2>4. Cookie</h2>
+    <p>Situs ini menggunakan minimal cookie. Kami tidak menggunakan cookie pelacakan iklan pihak ketiga atau pixel marketing.</p>
+    <p>Cookie yang mungkin digunakan:</p>
+    <ul>
+      <li>Cookie Cloudflare untuk keamanan (misalnya <code>__cf_bm</code> untuk perlindungan bot)</li>
+      <li>Cookie sesi jika diaktifkan untuk preferensi tampilan</li>
+    </ul>
+
+    <h2>5. Pihak Ketiga</h2>
+    <p>Layanan pihak ketiga yang mungkin memproses data Anda saat berinteraksi dengan kami:</p>
+    <ul>
+      <li><strong>Cloudflare</strong> — hosting website dan CDN</li>
+      <li><strong>Google Fonts</strong> — penyedia font (IBM Plex Sans)</li>
+      <li><strong>WhatsApp / Telegram / Gmail</strong> — saat Anda menghubungi kami via kanal tersebut</li>
+    </ul>
+    <p>Masing-masing memiliki kebijakan privasi sendiri yang berlaku atas data yang mereka proses.</p>
+
+    <h2>6. Indeks Mesin Pencari &amp; AI</h2>
+    <p>
+      Situs ini diizinkan untuk diindeks oleh mesin pencari (Google, Bing) dan crawler AI
+      (GPTBot, ClaudeBot, PerplexityBot, Google-Extended, dan lain-lain). Kami menyediakan
+      <code>llms.txt</code> dan <code>llms-full.txt</code> agar model AI dapat memahami konteks
+      situs kami secara akurat.
+    </p>
+    <p>
+      Konten yang Anda baca di sini dapat muncul dalam jawaban AI generatif. Kami menganggap ini
+      sebagai bentuk distribusi pengetahuan yang sah, asalkan tetap mencantumkan sumber.
+    </p>
+
+    <h2>7. Hak Anda</h2>
+    <p>Sesuai peraturan perlindungan data yang berlaku di Indonesia (UU PDP), Anda berhak untuk:</p>
+    <ul>
+      <li>Mengetahui data apa yang kami kumpulkan tentang Anda</li>
+      <li>Meminta penghapusan data pribadi yang Anda kirimkan</li>
+      <li>Menarik persetujuan pemrosesan data</li>
+      <li>Mengoreksi data yang tidak akurat</li>
+    </ul>
+    <p>Untuk menggunakan hak ini, hubungi kami melalui <a href="/contact">halaman kontak</a>.</p>
+
+    <h2>8. Perubahan Kebijakan</h2>
+    <p>
+      Kebijakan ini dapat diperbarui sewaktu-waktu. Tanggal "Terakhir diperbarui" di atas akan
+      diubah setiap kali revisi dipublikasikan. Kami sarankan Anda meninjau halaman ini secara
+      berkala.
+    </p>
+
+    <h2>9. Kontak</h2>
+    <p>
+      Jika ada pertanyaan tentang kebijakan privasi ini, hubungi kami melalui
+      <a href="/contact">halaman kontak</a>.
+    </p>
+  </div>
+</BaseLayout>

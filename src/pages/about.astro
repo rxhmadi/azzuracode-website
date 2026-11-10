@@ -1,0 +1,116 @@
+---
+/**
+ * About page — Tentang Rahmadi Digital Creatives.
+ */
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE, TOPICS } from '../lib/site';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Icon from '../components/Icon.astro';
+
+const breadcrumbs = [
+  { name: 'Beranda', href: '/' },
+  { name: 'Tentang' },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'AboutPage',
+  name: `Tentang ${SITE.name}`,
+  url: `${SITE.url}/about`,
+  inLanguage: 'id-ID',
+  isPartOf: { '@type': 'WebSite', name: SITE.name, url: SITE.url },
+};
+---
+
+<BaseLayout
+  title="Tentang Kami"
+  description={`${SITE.name} adalah jasa pembuatan website profesional untuk UMKM dan bisnis lokal Indonesia, dikelola oleh ${SITE.author}.`}
+  type="profile"
+  schema={schema}
+>
+  <Breadcrumbs items={breadcrumbs} />
+
+  <header class="page-header">
+    <h1>Tentang {SITE.name}</h1>
+    <p class="page-header__meta">
+      Dikelola oleh {SITE.author} · Melayani UMKM dan bisnis lokal Indonesia
+    </p>
+  </header>
+
+  <div class="page-body">
+    <p>
+      <strong>{SITE.name}</strong> lahir dari keyakinan sederhana: setiap bisnis lokal Indonesia,
+      sekecil apa pun, berhak memiliki kehadiran digital yang profesional. Kami percaya bahwa
+      website bukan sekadar "biar ada", tetapi harus menjadi mesin yang menghasilkan pelanggan,
+      kepercayaan, dan pertumbuhan bisnis.
+    </p>
+
+    <p>
+      Kami fokus melayani UMKM dan bisnis lokal Indonesia — bukan korporat besar dengan budget
+      tak terbatas. Karena itu, setiap layanan kami dirancang untuk memberikan dampak maksimal
+      dengan harga yang masuk akal untuk pelaku usaha lokal.
+    </p>
+
+    <h2>Yang kami percayai</h2>
+    <ul>
+      <li><strong>Sederhana lebih baik dari rumit.</strong> Website tidak perlu berat dengan animasi mahal jika tidak menambah konversi.</li>
+      <li><strong>Cepat adalah default.</strong> Pengunjung tidak sabar — website yang lambat kehilangan peluang setiap detiknya.</li>
+      <li><strong>SEO bukan add-on.</strong> Website yang tidak SEO-friendly sejak awal akan sia-sia dalam jangka panjang.</li>
+      <li><strong>Mobile-first wajib.</strong> Mayoritas pengguna Indonesia mengakses internet via ponsel.</li>
+      <li><strong>Transparansi di atas semua.</strong> Harga jelas, timeline jelas, tidak ada biaya tersembunyi.</li>
+    </ul>
+
+    <h2>Siapa di balik {SITE.name}</h2>
+    <p>
+      {SITE.name} dikelola oleh <strong>{SITE.author}</strong>, seorang web developer dengan
+      pengalaman membangun website untuk berbagai jenis bisnis — dari landing page UMKM hingga
+      web app custom untuk operasional perusahaan.
+    </p>
+    <p>
+      Kami menggunakan teknologi modern (Astro, Next.js, dan framework lain yang sedang menjadi
+      standar industri) untuk memastikan website Anda cepat, aman, dan mudah dikembangkan di
+      masa depan.
+    </p>
+
+    <h2>Layanan yang kami tawarkan</h2>
+    <p>Kami melayani berbagai kebutuhan website untuk bisnis lokal Indonesia:</p>
+    <ul>
+      <li><strong>Landing page</strong> — satu halaman fokus konversi untuk produk atau kampanye</li>
+      <li><strong>Company profile</strong> — website korporat untuk membangun kredibilitas</li>
+      <li><strong>Toko online</strong> — e-commerce lengkap dengan keranjang dan payment gateway</li>
+      <li><strong>Blog / news site</strong> — website artikel untuk content marketing dan SEO</li>
+      <li><strong>Web app custom</strong> — aplikasi web sesuai kebutuhan operasional bisnis</li>
+      <li><strong>SEO optimization</strong> — optimasi mesin pencari agar bisnis Anda mudah ditemukan</li>
+      <li><strong>Maintenance & hosting</strong> — pemeliharaan berkala dan hosting andal</li>
+    </ul>
+
+    <h2>Wilayah layanan</h2>
+    <p>
+      Kami melayani seluruh Indonesia secara online. Komunikasi utama via WhatsApp, email, atau
+      Telegram. Tidak perlu pertemuan tatap muka — semua proses bisa dilakukan jarak jauh dengan
+      hasil yang sama berkualitas.
+    </p>
+    <p>
+      Kami juga aktif menulis artikel lokal SEO untuk berbagai kota di Indonesia — termasuk
+      Jakarta, Bandung, Surabaya, dan Yogyakarta — agar bisnis di daerah tersebut lebih mudah
+      ditemukan calon pelanggan di Google.
+    </p>
+
+    <h2>Komitmen kami</h2>
+    <p>Setiap proyek yang kami terima melalui proses berikut:</p>
+    <ol>
+      <li><strong>Konsultasi gratis</strong> — kami evaluasi kebutuhan bisnis Anda sebelum mulai</li>
+      <li><strong>Penawaran transparan</strong> — harga jelas, timeline jelas, tidak ada biaya tersembunyi</li>
+      <li><strong>Development dengan teknologi modern</strong> — Astro, Next.js, atau stack yang sesuai</li>
+      <li><strong>Testing menyeluruh</strong> — performa, SEO, dan responsivitas dicek sebelum launch</li>
+      <li><strong>Training dan dokumentasi</strong> — Anda bisa mengelola website sendiri untuk update kecil</li>
+      <li><strong>Garansi 30 hari</strong> — bug fix pasca-launch tanpa biaya tambahan</li>
+      <li><strong>Maintenance berkala opsional</strong> — paket bulanan jika Anda butuh dukungan berkelanjutan</li>
+    </ol>
+
+    <p>
+      Untuk pertanyaan atau konsultasi, silakan hubungi kami melalui
+      <a href="/contact">halaman kontak</a>.
+    </p>
+  </div>
+</BaseLayout>

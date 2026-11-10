@@ -1,0 +1,34 @@
+---
+/**
+ * Breadcrumbs.astro — Breadcrumb navigation yang menghasilkan BreadcrumbList JSON-LD.
+ *
+ * Props:
+ *  - items: array of { name, href } (item terakhir = current page, href-nya undefined)
+ */
+import Icon from './Icon.astro';
+
+interface Props {
+  items: { name: string; href?: string }[];
+}
+
+const { items } = Astro.props;
+---
+
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  {
+    items.map((item, i) => (
+      <>
+        {item.href ? (
+          <a href={item.href}>{item.name}</a>
+        ) : (
+          <span aria-current="page">{item.name}</span>
+        )}
+        {i < items.length - 1 && (
+          <span class="breadcrumbs__separator" aria-hidden="true">
+            <Icon name="chevron-right" size={14} />
+          </span>
+        )}
+      </>
+    ))
+  }
+</nav>

@@ -1,0 +1,29 @@
+---
+/**
+ * 404 — Not found page.
+ */
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../lib/site';
+import Icon from '../components/Icon.astro';
+---
+
+<BaseLayout
+  title="Halaman tidak ditemukan"
+  description="Halaman yang Anda cari tidak ditemukan."
+  noindex={true}
+>
+  <div style="text-align: center; padding: var(--space-10) 0;">
+    <div style="font-size: 4rem; font-weight: 600; letter-spacing: -0.02em; margin-bottom: var(--space-4);">404</div>
+    <h1 style="font-size: 1.25rem; margin-bottom: var(--space-3);">Halaman tidak ditemukan</h1>
+    <p style="color: var(--color-text-muted); margin-bottom: var(--space-6);">
+      Maaf, halaman yang Anda cari tidak ada atau sudah dipindahkan.
+    </p>
+    <div style="display: flex; gap: var(--space-3); justify-content: center; flex-wrap: wrap;">
+      <a class="btn btn--primary" href="/">
+        <Icon name="arrow-left" size={16} />
+        Kembali ke beranda
+      </a>
+      <a class="btn btn--ghost" href="/blog">Lihat artikel</a>
+    </div>
+  </div>
+</BaseLayout>

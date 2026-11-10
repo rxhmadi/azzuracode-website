@@ -1,0 +1,205 @@
+---
+/**
+ * Homepage — Hero + services + latest articles.
+ */
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE, TOPICS, SERVICES } from '../lib/site';
+import { getPublishedArticles, formatDateID, readingTime } from '../lib/articles';
+import Icon from '../components/Icon.astro';
+import Reviews from '../components/Reviews.astro';
+
+const articles = await getPublishedArticles();
+const recentArticles = articles.slice(0, 4);
+
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: SITE.name,
+  url: SITE.url,
+  description: SITE.description,
+  email: SITE.email,
+  founder: { '@type': 'Person', name: SITE.author },
+  knowsAbout: TOPICS,
+  sameAs: Object.values(SITE.social).filter(Boolean),
+};
+
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: SITE.name,
+  url: SITE.url,
+  description: SITE.description,
+  inLanguage: 'id-ID',
+  publisher: { '@type': 'Organization', name: SITE.name },
+};
+
+// Service schema untuk rich snippet
+const serviceSchema = SERVICES.map((service) => ({
+  '@type': 'Service',
+  name: service.name,
+  description: service.description,
+  provider: { '@type': 'Organization', name: SITE.name, url: SITE.url },
+  areaServed: { '@type': 'Country', name: 'Indonesia' },
+}));
+---
+
+<BaseLayout
+  title={`${SITE.name} — ${SITE.tagline}`}
+  description={SITE.description}
+  type="website"
+  schema={[organizationSchema, websiteSchema, ...serviceSchema]}
+>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero__eyebrow">
+      <Icon name="code" size={14} />
+      <span>Jasa pembuatan website profesional</span>
+    </div>
+    <h1 class="hero__title">{SITE.tagline}</h1>
+    <p class="hero__description">{SITE.description}</p>
+    <div class="hero__cta">
+      <a class="btn btn--primary" href="/contact">
+        <span>Konsultasi gratis</span>
+        <Icon name="arrow-right" size={16} />
+      </a>
+      <a class="btn btn--ghost" href="#layanan">Lihat layanan</a>
+    </div>
+  </section>
+
+  <!-- Layanan -->
+  <section id="layanan" style="margin-top: var(--space-8);">
+    <div class="section-title">
+      <h2>Layanan kami</h2>
+      <a href="/contact">Minta penawaran</a>
+    </div>
+    <div class="services-grid">
+      {SERVICES.map((service) => (
+        <div class="service-card">
+          <div class="service-card__icon">
+            <Icon name={service.icon} size={22} />
+          </div>
+          <h3 class="service-card__title">{service.name}</h3>
+          <p class="service-card__desc">{service.description}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Latest articles -->
+  {recentArticles.length > 0 && (
+    <section style="margin-top: var(--space-10);">
+      <div class="section-title">
+        <h2>Artikel terbaru</h2>
+        <a href="/blog">Lihat semua</a>
+      </div>
+      <div class="article-list">
+        {recentArticles.map((article) => {
+          const minutes = readingTime(article.body);
+          return (
+            <a class="article-card" href={`/blog/${article.id}`}>
+              <div class="article-card__meta">
+                <Icon name="calendar" size={14} />
+                <span>{formatDateID(article.data.pubDate)}</span>
+                <span aria-hidden="true">·</span>
+                <Icon name="clock" size={14} />
+                <span>{minutes} menit baca</span>
+              </div>
+              <h3 class="article-card__title">{article.data.title}</h3>
+              <p class="article-card__excerpt">{article.data.description}</p>
+            </a>
+          );
+        })}
+      </div>
+    </section>
+  )}
+
+  <!-- Reviews dari pelanggan -->
+  <Reviews />
+
+  <!-- CTA Section -->
+  <section class="cta-section" style="margin-top: var(--space-10);">
+    <div class="cta-card">
+      <h2>Siap membangun website untuk bisnis Anda?</h2>
+      <p>Konsultasi gratis — kami bantu identifikasi jenis website yang paling tepat untuk bisnis Anda, lengkap dengan estimasi biaya dan timeline yang transparan.</p>
+      <div class="hero__cta">
+        <a class="btn btn--primary" href={SITE.whatsappLink} target="_blank" rel="noopener noreferrer">
+          <Icon name="message-circle" size={16} />
+          <span>Chat WhatsApp</span>
+        </a>
+        <a class="btn btn--ghost" href="/contact">Halaman kontak</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .services-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+  @media (min-width: 640px) {
+    .services-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (min-width: 900px) {
+    .services-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  .service-card {
+    padding: var(--space-5);
+    border: var(--border-width) solid var(--color-border);
+    border-radius: var(--radius);
+    transition: border-color 0.15s, transform 0.15s;
+  }
+  .service-card:hover {
+    border-color: var(--color-border-strong);
+    transform: translateY(-2px);
+  }
+  .service-card__icon {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-sm);
+    background: var(--color-bg-subtle);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--space-3);
+    color: var(--color-text);
+  }
+  .service-card__title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: var(--space-2);
+    color: var(--color-text);
+  }
+  .service-card__desc {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .cta-card {
+    padding: var(--space-8);
+    background: var(--color-bg-subtle);
+    border: var(--border-width) solid var(--color-border);
+    border-radius: var(--radius);
+    text-align: center;
+  }
+  .cta-card h2 {
+    margin-top: 0;
+    margin-bottom: var(--space-3);
+    font-size: clamp(1.25rem, 2vw + 0.5rem, 1.6rem);
+  }
+  .cta-card p {
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    max-width: 50ch;
+    margin: 0 auto var(--space-5);
+  }
+  .cta-card .hero__cta {
+    justify-content: center;
+  }
+</style>
