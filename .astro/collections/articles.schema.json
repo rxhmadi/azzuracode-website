@@ -20,7 +20,7 @@
       "format": "date-time"
     },
     "author": {
-      "default": "Stephanie K",
+      "default": "Rahmadi",
       "type": "string"
     },
     "tags": {
