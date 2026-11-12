@@ -28,49 +28,61 @@ export const SITE = {
   },
 } as const;
 
-/** Layanan yang ditawarkan — dipakai di homepage, schema.org, llms.txt */
+/** Layanan yang ditawarkan — dipakai di homepage, schema.org, llms.txt
+ *
+ * Field `image` mengacu ke file di `public/images/services/{slug}.jpg`.
+ * Kalau file belum ada, card tetap tampil dengan fallback gradient background.
+ * Disarankan ukuran gambar: 600x400px, format JPG/WebP, file size < 100KB.
+ */
 export const SERVICES = [
   {
     slug: 'landing-page',
     name: 'Landing Page',
     description: 'Satu halaman fokus konversi untuk produk, event, atau kampanye pemasaran.',
     icon: 'square-equal',
+    image: '/images/services/landing-page.jpg',
   },
   {
     slug: 'company-profile',
     name: 'Company Profile',
     description: 'Website korporat untuk membangun kredibilitas bisnis profesional Anda.',
     icon: 'file-text',
+    image: '/images/services/company-profile.jpg',
   },
   {
     slug: 'toko-online',
     name: 'Toko Online',
     description: 'E-commerce lengkap dengan keranjang, payment gateway, dan manajemen produk.',
     icon: 'cart',
+    image: '/images/services/toko-online.jpg',
   },
   {
     slug: 'blog-news',
     name: 'Blog / News Site',
     description: 'Website artikel dengan CMS sederhana untuk SEO content marketing.',
     icon: 'book-open',
+    image: '/images/services/blog-news.jpg',
   },
   {
     slug: 'web-app-custom',
     name: 'Web App Custom',
     description: 'Aplikasi web custom sesuai kebutuhan bisnis: dashboard, portal, sistem internal.',
     icon: 'code',
+    image: '/images/services/web-app-custom.jpg',
   },
   {
     slug: 'seo-optimization',
     name: 'SEO Optimization',
     description: 'Optimasi mesin pencari agar website Anda mudah ditemukan calon pelanggan.',
     icon: 'search',
+    image: '/images/services/seo-optimization.jpg',
   },
   {
     slug: 'maintenance-hosting',
     name: 'Maintenance & Hosting',
     description: 'Pemeliharaan berkala, update keamanan, dan hosting andal untuk website Anda.',
     icon: 'server',
+    image: '/images/services/maintenance-hosting.jpg',
   },
 ] as const;
 

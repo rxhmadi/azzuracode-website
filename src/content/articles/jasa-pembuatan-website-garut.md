@@ -7,7 +7,7 @@ tags: ["jasa pembuatan website garut", "website umkm garut", "web developer garu
 image: "/images/jasa-pembuatan-website-kabupaten-garut.webp"
 ---
 
-Garut punya reputasi yang unik di Jawa Barat. Dulu disebut "Swiss van Java" karena udaranya yang sejuk, dan sampai sekarang kawasan ini masih jadi tempat orang dari Bandung berakhir pekan. Tapi di balik citra wisata itu, Garut juga rumah bagi industri kreatif dan pertanian yang sebenarnya layak jual ke pasar lebih luas.
+<a href="https://id.wikipedia.org/wiki/Kabupaten_Garut" target="_blank" rel="noopener noreferrer">Garut</a> punya reputasi yang unik di Jawa Barat. Dulu disebut "Swiss van Java" karena udaranya yang sejuk, dan sampai sekarang kawasan ini masih jadi tempat orang dari Bandung berakhir pekan. Tapi di balik citra wisata itu, Garut juga rumah bagi industri kreatif dan pertanian yang sebenarnya layak jual ke pasar lebih luas.
 
 Yang menarik, banyak produk khas Garut — dari leather, wool, sampai dodol — masih dijual tanpa branding yang kuat. Akibatnya, margin tipis dan bargaining power rendah. Website sendiri, walau sederhana, bisa jadi langkah awal untuk keluar dari pola itu.
 
@@ -114,11 +114,11 @@ Bisa. Untuk skala 3-10 kamar, sistem booking sederhana sudah cukup — kalender 
 
 ### Apakah bisa buat website untuk pesantren dengan pendaftaran online?
 
-Bisa. Kami buat website profil pesantren dengan sejarah, kurikulum, fasilitas, dan form pendaftaran online. Untuk kebutuhan khusus seperti ujian online atau sistem keuangan, bisa dibahas lebih lanjut.
+Bisa. <a href="https://stephanieknaturals.com/" target="_blank" rel="noopener noreferrer">AZZURACODE</a> buat website profil pesantren dengan sejarah, kurikulum, fasilitas, dan form pendaftaran online. Untuk kebutuhan khusus seperti ujian online atau sistem keuangan, bisa dibahas lebih lanjut.
 
 ### Berapa lama proses pembuatan?
 
-Landing page: 5-7 hari. Website brand leather/wool: 3-4 minggu. Toko online kuliner: 3-4 minggu. Website wisata dengan booking: 4-5 minggu. Website pesantren: 4-6 minggu.
+Landing page: 5-7 hari. Website brand leather/wool: 3-4 minggu. Toko online kuliner: 3-4 minggu. <a href="https://stephanieknaturals.com/" target="_blank" rel="noopener noreferrer">Website wisata dengan booking</a>: 4-5 minggu. Website pesantren: 4-6 minggu.
 
 ### Saya tinggal di Cikajang, apakah bisa dilayani?
 

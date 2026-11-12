@@ -9,6 +9,7 @@ import { SITE } from '../../lib/site';
 import { formatDateID, readingTime, toISO } from '../../lib/articles';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import Icon from '../../components/Icon.astro';
+import ShareButtons from '../../components/ShareButtons.astro';
 
 // Generate static paths dari semua artikel
 export async function getStaticPaths() {
@@ -128,6 +129,8 @@ const breadcrumbSchema = {
     <div class="article-body">
       <Content />
     </div>
+
+    <ShareButtons url={articleUrl} title={article.data.title} />
   </article>
 </BaseLayout>
 

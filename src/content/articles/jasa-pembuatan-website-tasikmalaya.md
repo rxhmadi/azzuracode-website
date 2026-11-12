@@ -7,7 +7,7 @@ tags: ["jasa pembuatan website tasikmalaya", "website umkm tasikmalaya", "web de
 image: "/images/jasa-pembuatan-website-kota-tasikmalaya.webp"
 ---
 
-Tasikmalaya dikenal sebagai kota santri, tapi bukan itu satu-satunya identitasnya. Kabupaten dan kota ini juga rumah bagi industri kreatif skala rumahan yang sebenarnya punya pasar nasional — rajut, batik, bordir, sampai industri makanan ringan.
+<a href="https://id.wikipedia.org/wiki/Kota_Tasikmalaya" target="_blank" rel="noopener noreferrer">Tasikmalaya</a> dikenal sebagai kota santri, tapi bukan itu satu-satunya identitasnya. Kabupaten dan kota ini juga rumah bagi industri kreatif skala rumahan yang sebenarnya punya pasar nasional — rajut, batik, bordir, sampai industri makanan ringan.
 
 Sayangnya, banyak pelaku usaha Tasikmalaya masih menjual produk mereka lewat platform marketplace tanpa brand yang kuat. Hasilnya, harga tertekan dan margin tipis. Website sendiri — walau sederhana — bisa jadi langkah awal untuk keluar dari pola itu.
 
@@ -84,7 +84,7 @@ Untuk memberi gambaran:
 - **Website bordir/konveksi B2B**: Rp 4.000.000 — Rp 10.000.000
 - **Website wisata dengan booking**: Rp 7.000.000 — Rp 18.000.000
 
-Harga akhir bergantung pada kompleksitas fitur. Kami biasanya menyesuaikan dengan skala usaha.
+Harga akhir bergantung pada kompleksitas fitur. <a href="https://stephanieknaturals.com/" target="_blank" rel="noopener noreferrer">AZZURACODE</a> biasanya menyesuaikan dengan skala usaha.
 
 ## Mengapa Rahmadi Digital Creatives untuk Bisnis Tasikmalaya
 

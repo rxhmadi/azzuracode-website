@@ -7,7 +7,7 @@ tags: ["jasa pembuatan website ciamis", "website umkm ciamis", "web developer ci
 image: "/images/jasa-pembuatan-website-ciamis.webp"
 ---
 
-Ciamis sering luput dari perbincangan saat berbicara potensi digital di Priangan Timur. Padahal, kabupaten ini punya karakter yang berbeda dari tetangganya — gabungan hutan, sawah, situs sejarah Galuh, dan kawasan wisata yang perlahan kembali ramai setelah Pandemi.
+<a href="https://id.wikipedia.org/wiki/Kabupaten_Ciamis" target="_blank" rel="noopener noreferrer">Ciamis</a> sering luput dari perbincangan saat berbicara potensi digital di Priangan Timur. Padahal, kabupaten ini punya karakter yang berbeda dari tetangganya — gabungan hutan, sawah, situs sejarah Galuh, dan kawasan wisata yang perlahan kembali ramai setelah Pandemi.
 
 Banyak pelaku UMKM di Ciamis masih bergantung pada WhatsApp dan mulut ke mulut. Strategi itu tidak salah, tapi kalau Anda ingin produk atau jasa ditemukan dari luar Ciamis — bahkan dari luar Jawa Barat — website tetap perlu dipikirkan.
 
@@ -82,7 +82,7 @@ Angka di atas bukan standar baku. Kami biasanya menyesuaikan dengan berbagai ska
 
 ## Mengapa Rahmadi Digital Creatives untuk Bisnis di Ciamis
 
-Kami sudah cukup sering bekerja dengan pelaku usaha dari wilayah Priangan Timur. Beberapa alasan pelaku Ciamis memilih kami:
+<a href="https://stephanieknaturals.com/" target="_blank" rel="noopener noreferrer">AZZURACODE</a> sudah cukup sering bekerja dengan pelaku usaha dari wilayah Priangan Timur. Beberapa alasan pelaku Ciamis memilih kami:
 
 - **Tidak menjual template** — setiap website kami rancang berdasarkan karakter usaha dan target pasarnya
 - **Bahasa visual yang sesuai** — kami tidak memaksakan estetika kota besar untuk usaha berbasis desa atau agribisnis
@@ -95,7 +95,7 @@ Kami sudah cukup sering bekerja dengan pelaku usaha dari wilayah Priangan Timur.
 
 ### Saya tidak tinggal di Ciamis, tapi punya bisnis di sana. Bisakah dilayani?
 
-Ya. Komunikasi utama kami via WhatsApp dan Zoom. Selama data bisnis, foto, dan kebutuhan konten Anda jelas, lokasi tidak jadi masalah.
+Ya. Komunikasi utama kami via <a href="https://stephanieknaturals.com/contact/" target="_blank" rel="noopener noreferrer">Kontak</a> WhatsApp dan Zoom. Selama data bisnis, foto, dan kebutuhan konten Anda jelas, lokasi tidak jadi masalah.
 
 ### Saya punya homestay di kawasan wisata Ciamis. Apakah bisa dibuatkan sistem booking?
 

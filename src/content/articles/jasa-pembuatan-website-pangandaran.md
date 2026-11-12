@@ -7,7 +7,7 @@ tags: ["jasa pembuatan website pangandaran", "website homestay pangandaran", "we
 image: "/images/jasa-pembuatan-website-kabupaten-pangandaran.webp"
 ---
 
-Pangandaran tidak butuh perkenalan. Sebagai destinasi wisata andalan Jawa Barat bagian selatan, kawasan ini sudah dikenal sejak era 1980-an. Tapi yang banyak tidak sadar — geliat ekonomi digital di Pangandaran masih jauh tertinggal dari potensi sebenarnya.
+<a href="https://id.wikipedia.org/wiki/Kabupaten_Pangandaran" target="_blank" rel="noopener noreferrer">Pangandaran</a> tidak butuh perkenalan. Sebagai destinasi wisata andalan Jawa Barat bagian selatan, kawasan ini sudah dikenal sejak era 1980-an. Tapi yang banyak tidak sadar — geliat ekonomi digital di Pangandaran masih jauh tertinggal dari potensi sebenarnya.
 
 Banyak homestay dan hotel kecil di Pangandaran masih mengandalkan OTA besar untuk mendapatkan tamu. Padahal, komisi 15-20% ke platform pihak ketiga itu uang yang sebenarnya bisa ditahan, kalau punya kanal pemesanan langsung via website.
 
@@ -126,6 +126,6 @@ Ada. Kami punya paket fleksibel untuk skala usaha keluarga, termasuk opsi pembay
 
 ## Siap Mendapatkan Tamu Langsung dari Website?
 
-Hubungi kami untuk konsultasi gratis. Kami bantu identifikasi langkah pertama — apakah Anda butuh landing page, website booking, atau profil usaha wisata. Estimasi biaya transparan, sesuai skala usaha Anda di Pangandaran.
+Hubungi <a href="https://stephanieknaturals.com/" target="_blank" rel="noopener noreferrer">AZZURACODE</a> untuk konsultasi gratis. Kami bantu identifikasi langkah pertama — apakah Anda butuh landing page, website booking, atau profil usaha wisata. Estimasi biaya transparan, sesuai skala usaha Anda di Pangandaran.
 
 > Kami melayani seluruh area Pangandaran: kawasan Pantai Pangandaran, Batu Karas, Green Canyon (Cijulang), Parigi, dan kawasan wisata lain. Komunikasi utama via online, dengan opsi tatap muka di lokasi untuk pertemuan penting.

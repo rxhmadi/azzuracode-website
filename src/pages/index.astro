@@ -74,13 +74,22 @@ const serviceSchema = SERVICES.map((service) => ({
     </div>
     <div class="services-grid">
       {SERVICES.map((service) => (
-        <div class="service-card">
-          <div class="service-card__icon">
-            <Icon name={service.icon} size={22} />
+        <article class="service-card">
+          <div class="service-card__media">
+            <img
+              src={service.image}
+              alt={service.name}
+              loading="lazy"
+              decoding="async"
+              onerror="this.style.display='none'"
+            />
+            <div class="service-card__overlay"></div>
           </div>
-          <h3 class="service-card__title">{service.name}</h3>
-          <p class="service-card__desc">{service.description}</p>
-        </div>
+          <div class="service-card__content">
+            <h3 class="service-card__title">{service.name}</h3>
+            <p class="service-card__desc">{service.description}</p>
+          </div>
+        </article>
       ))}
     </div>
   </section>
@@ -135,51 +144,88 @@ const serviceSchema = SERVICES.map((service) => ({
 <style>
   .services-grid {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-3);
+    /* Mobile: 2 columns (compact) */
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-2);
   }
   @media (min-width: 640px) {
     .services-grid {
       grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-3);
     }
   }
   @media (min-width: 900px) {
     .services-grid {
-      grid-template-columns: repeat(3, 1fr);
+      /* Desktop: 4 columns (compact) */
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-3);
     }
   }
   .service-card {
-    padding: var(--space-5);
+    position: relative;
+    overflow: hidden;
     border: var(--border-width) solid var(--color-border);
     border-radius: var(--radius);
-    transition: border-color 0.15s, transform 0.15s;
+    background: var(--color-bg);  /* putih, menyatu dengan overlay */
   }
-  .service-card:hover {
-    border-color: var(--color-border-strong);
-    transform: translateY(-2px);
+
+  /* Media area — image + overlay (no blur, no hover) */
+  .service-card__media {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background: var(--color-bg);  /* putih fallback kalau image belum ada */
   }
-  .service-card__icon {
-    width: 40px;
-    height: 40px;
-    border-radius: var(--radius-sm);
-    background: var(--color-bg-subtle);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: var(--space-3);
-    color: var(--color-text);
+  .service-card__media img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* No blur — image tampil apa adanya */
+  }
+
+  /* White gradient fade overlay — dari transparent di atas ke putih solid di bawah */
+  .service-card__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.2) 40%,
+      rgba(255, 255, 255, 0.85) 80%,
+      rgba(255, 255, 255, 1) 100%
+    );
+    pointer-events: none;
+  }
+
+  /* Content di atas overlay, di bagian bawah card */
+  .service-card__content {
+    position: relative;
+    z-index: 1;
+    padding: var(--space-3) var(--space-3) var(--space-4);
+    /* Margin-top negatif supaya content overlap dengan media bagian bawah,
+       seamless dengan overlay fade */
+    margin-top: -32px;
   }
   .service-card__title {
-    font-size: 1rem;
+    font-size: 0.85rem;
     font-weight: 600;
-    margin-bottom: var(--space-2);
+    margin-bottom: 4px;
     color: var(--color-text);
+    line-height: 1.3;
   }
   .service-card__desc {
-    font-size: 0.875rem;
+    font-size: 0.78rem;
     color: var(--color-text-muted);
-    line-height: 1.5;
+    line-height: 1.45;
     margin: 0;
+    /* Limit 3 baris supaya card height konsisten */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
   .cta-card {
     padding: var(--space-8);
